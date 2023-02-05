@@ -1,13 +1,23 @@
-import fbchat
-from fbchat.models import *
-import getpass
+import pyautogui
+import keyboard
+
+
+def write(text: str) -> None:
+    pyautogui.click(pyautogui.center(pyautogui.locateOnScreen('home.png')))
+    pyautogui.typewrite(text + "\n")
+
 
 def main():
-    client = fbchat.Client("sancirigo@gmail.com", getpass.getpass())
-    tsalad = "1281138335305176"
+    while True:
+        if (keyboard.is_pressed('F10')):
+            exit(0)
 
-    client.send(Message(text="Igen igen"), thread_id = tsalad, thread_type = ThreadType.GROUP)
-    client.logout()
+        if (pyautogui.locateOnScreen("jolvagy.png") is not None):
+            write("Igen igen")
+
+        if (pyautogui.locateOnScreen("hogyvagy.png") is not None):
+            write("Jol")
 
 
-main()
+if __name__ == "__main__":
+    main()
