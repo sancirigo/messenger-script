@@ -4,8 +4,12 @@ import keyboard
 
 def write(img: str, text: str) -> None:
     if (pyautogui.locateOnScreen(img) is not None):
-        pyautogui.click(pyautogui.center(pyautogui.locateOnScreen('home.png')))
-        pyautogui.typewrite(text + "\n")
+        print(img)
+        try:
+            pyautogui.click(pyautogui.center(pyautogui.locateOnScreen('home.png')))
+            pyautogui.typewrite(text + "\n")
+        except:
+            print("Can't find home")
 
 
 def main():
